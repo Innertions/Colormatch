@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Color Match Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <h1 class="loading-title">Innertion.g</h1>
+        <div class="loading-subtitle">Pressent</div>
+    </div>
+
+    <!-- Main Menu -->
+    <div class="main-menu">
+        <h1 class="title">ColorMatch!</h1>
+        <div class="menu-buttons">
+            <button id="start-button">Play</button>
+            <button id="how-to-play-button">How to Play</button>
+            <button id="settings-button">Settings</button>
+        </div>
+        <div class="best-score">Best Score: <span id="best-score">0</span></div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <h2>Game Settings</h2>
+            <div class="setting-group">
+                <label for="mode">Difficulty:</label>
+                <select id="mode">
+                    <option value="easy">Easy (3s)</option>
+                    <option value="normal">Normal (2s)</option>
+                    <option value="hard">Hard (1s)</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <label for="color-mode">Color Mode:</label>
+                <select id="color-mode">
+                    <option value="normal">Normal</option>
+                    <option value="colorblind">Colorblind Mode</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <label for="color-count">Colors:</label>
+                <select id="color-count">
+                    <option value="3">3 Colors</option>
+                    <option value="5">5 Colors</option>
+                    <option value="8">8 Colors</option>
+                </select>
+            </div>
+            <div class="setting-group sound-controls">
+                <button id="bgm-toggle">BGM: On</button>
+                <button id="sfx-toggle">SFX: On</button>
+            </div>
+            <button id="close-settings-button">Save Settings</button>
+        </div>
+    </div>
+
+    <!-- How to Play Modal -->
+    <div class="modal" id="guide-modal">
+        <div class="modal-content">
+            <h2>How to Play</h2>
+            <p>Match the target color with the correct option before time runs out!</p>
+            <p>Different difficulties change the timer speed.</p>
+            <p>Colorblind mode adds numbers to help identify colors.</p>
+            <button id="close-guide-button">Got It!</button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div class="game-container">
+        <div class="game-header">
+            <div class="score-board">
+                <div>Score: <span id="live-score">0</span></div>
+                <div>Best: <span id="current-best-score">0</span></div>
+                <div class="timer">Time: <span id="timer">0</span>s</div>
+            </div>
+        </div>
+        <div class="game-area">
+            <div class="color-target-container">
+                <div class="color-target" id="color-target"></div>
+                <span class="target-label">Match This Color</span>
+            </div>
+            <div class="color-options" id="color-options"></div>
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div class="game-over-menu">
+        <h2 class="game-over-title">GAME OVER!!</h2>
+        <p class="final-score">Your Score: <span id="final-score">0</span></p>
+        <div class="game-over-buttons">
+            <button id="retry-button">Retry</button>
+            <button id="menu-button">Main Menu</button>
+        </div>
+    </div>
+
+    <!-- Countdown -->
+    <div class="countdown" id="countdown">
+        <span id="countdown-number">3</span>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="click-sound" src="sounds/click-sound.wav" preload="auto"></audio>
+    <audio id="correct-sound" src="sounds/correct-sound.wav" preload="auto"></audio>
+    <audio id="wrong-sound" src="sounds/wrong-sound.wav" preload="auto"></audio>
+    <audio id="background-music" src="sounds/bg.wav" loop preload="auto"></audio>
+
+    <script src="main.js"></script>
+</body>
+</html>
+
+<style>
+ .watermark {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.5); /* 50% opacity by default */
+            transition: opacity 0.3s ease, color 0.3s ease;
+            pointer-events: none; /* Prevents blocking clicks */
+            z-index: 9999; /* Ensures visibility */
+        }
+
+        .watermark:hover,
+        .watermark:focus-within {
+            color: rgba(0, 0, 0, 0.8); /* 80% opacity on hover */
+        }
+
+        .watermark a {
+            color: inherit;
+            text-decoration: none;
+            pointer-events: auto; /* Allows clicking the link */
+        }
+
+        .watermark a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your content here -->
+    <div class="watermark" tabindex="0"> <!-- tabindex="0" makes it focusable -->
+         <a href="https://youtu.be/dQw4w9WgXcQ?si=_z00ssbYRHAU10hO" target="_blank" rel="noopener">Powered by Spck Editor</a> <a>|</a><a href="/Credits" target="_blank" rel="noopener"
+         > ColorMatch a1.1.8b2 </a>
+
+    </div>
+</body>
+</html>
